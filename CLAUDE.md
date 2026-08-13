@@ -114,6 +114,14 @@ generators (Astro included) need `base` set explicitly, and getting it wrong
 looks fine locally while every asset 404s on the live URL. And commit the
 updated `pnpm-lock.yaml`: CI installs with `--frozen-lockfile`.
 
+This repo went **bare**: no bundler, hand-written HTML/CSS only. `build.mjs`
+replaces `vite build` --- it just copies everything except the tooling and
+process files into `dist/`, so a hand-added dataset or image ships with no
+extra config. `server.mjs` replaces `vite`/`vite preview` --- a plain static
+file server for `pnpm dev` (serves the repo root) and `pnpm preview` (serves
+`dist/`). No relative-URL or `base` trick is needed since nothing rewrites
+asset paths --- just link with relative paths as usual.
+
 ## Your process is part of the mark
 
 The deployed page is only half of it. How you got there is marked too: your
