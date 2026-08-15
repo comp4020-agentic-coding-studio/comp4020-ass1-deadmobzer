@@ -33,4 +33,9 @@ for (const entry of readdirSync(".", { withFileTypes: true })) {
   cpSync(entry.name, join(DIST, entry.name), { recursive: true });
 }
 
+// assets/reference/ is process provenance (the original prototype this page
+// was built from, the source 3D model, the process log) — not part of the
+// live site, so it doesn't ship.
+rmSync(join(DIST, "assets", "reference"), { recursive: true, force: true });
+
 console.log(`built ${DIST}/`);
