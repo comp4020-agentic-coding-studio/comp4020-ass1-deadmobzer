@@ -738,3 +738,40 @@ dd {
     animation: none !important;
   }
 }
+
+/* ---------- credits ---------- */
+.credits {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--ink-35);
+}
+
+.credits p + p {
+  margin-top: 6px;
+}
+
+.credits b {
+  color: var(--ink-60);
+  font-weight: 600;
+}
+
+/* stylelint-disable-next-line no-descending-specificity -- unrelated to
+   .rail .toc a: that's nav-dropdown-only, this is footer-only */
+.credits a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* stylelint-disable no-descending-specificity -- see above */
+.credits a:hover,
+.credits a:focus-visible {
+  color: var(--accent);
+}
+/* stylelint-enable no-descending-specificity */
