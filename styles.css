@@ -32,11 +32,11 @@
   --body: "IBM Plex Sans", system-ui, sans-serif;
   --rail: 34px;
   --stage-h: 100vh;
-  --m-polymer: #7c879b;
-  --m-nitride: #4e93c4;
-  --m-steel: #cbd4de;
-  --m-spring: #9dae95;
-  --m-brass: #e0a945;
+  --m-polymer: #27233a;
+  --m-nitride: #7765e3;
+  --m-steel: #f7f5fb;
+  --m-spring: #f0386b;
+  --m-brass: #f7b801;
   --accent: var(--m-steel);
 }
 
@@ -139,6 +139,38 @@ body::before {
   width: 0;
 }
 
+/* ---------- mute toggle ---------- */
+.mute-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border: 1px solid var(--rule);
+  padding: 4px 7px;
+  color: var(--ink);
+  background: transparent;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.mute-btn:hover,
+.mute-btn:focus-visible {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.mute-btn .cross {
+  display: none;
+}
+
+.mute-btn[aria-pressed="true"] .wave {
+  display: none;
+}
+
+.mute-btn[aria-pressed="true"] .cross {
+  display: block;
+}
+
 /* ---------- sections dropdown (in the rail) ---------- */
 .rail .toc {
   position: relative;
@@ -231,6 +263,7 @@ canvas#gl {
   width: 100%;
   height: 100%;
   touch-action: pan-y;
+  mask-image: radial-gradient(ellipse at center, #000 60%, transparent 100%);
 }
 
 /* ---------- callouts ---------- */
@@ -664,6 +697,15 @@ dd {
   .step {
     scroll-snap-align: start;
     scroll-margin-top: var(--rail);
+  }
+
+  /* .stage sits against the text column on this side, so the radial
+     mask alone leaves it looking clipped rather than faded */
+  canvas#gl {
+    mask-image:
+      radial-gradient(ellipse at center, #000 60%, transparent 100%),
+      linear-gradient(to right, transparent, #000 14%);
+    mask-composite: intersect;
   }
 }
 

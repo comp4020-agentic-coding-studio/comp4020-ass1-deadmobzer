@@ -7,11 +7,11 @@
    ========================================================================== */
 
 const MAT = {
-  polymer:{label:'Polymer',        css:'p', hex:0x7C879B},
-  nitride:{label:'Nitrided steel', css:'n', hex:0x4E93C4},
-  steel:  {label:'Steel',          css:'s', hex:0xCBD4DE},
-  spring: {label:'Spring steel',   css:'g', hex:0x9DAE95},
-  brass:  {label:'Brass',          css:'b', hex:0xE0A945},
+  polymer:{label:'Polymer',        css:'p', hex:0x27233A},
+  nitride:{label:'Nitrided steel', css:'n', hex:0x7765E3},
+  steel:  {label:'Steel',          css:'s', hex:0xF7F5FB},
+  spring: {label:'Spring steel',   css:'g', hex:0xF0386B},
+  brass:  {label:'Brass',          css:'b', hex:0xF7B801},
 };
 
 const PART_MAT = {
@@ -141,6 +141,22 @@ function startAmbience(){
 }
 addEventListener('scroll', startAmbience, {once:true, passive:true});
 addEventListener('pointerdown', startAmbience, {once:true});
+
+const AUDIO_ALL = [sndClick, sndSwitch, sndHeavy, sndAmbience];
+let muted = localStorage.getItem('g17-muted') === '1';
+AUDIO_ALL.forEach(a=>a.muted=muted);
+const muteBtn = document.getElementById('muteBtn');
+function syncMuteBtn(){
+  muteBtn.setAttribute('aria-pressed', String(muted));
+  muteBtn.setAttribute('aria-label', muted ? 'Unmute sound' : 'Mute sound');
+}
+syncMuteBtn();
+muteBtn.addEventListener('click', ()=>{
+  muted = !muted;
+  AUDIO_ALL.forEach(a=>a.muted=muted);
+  localStorage.setItem('g17-muted', muted ? '1' : '0');
+  syncMuteBtn();
+});
 
 /* ==========================================================================
    decode
