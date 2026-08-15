@@ -127,7 +127,20 @@ const SECTIONS = steps.map(el => ({
 const sndClick = new Audio('./assets/sfx/click-soft.wav');
 const sndSwitch = new Audio('./assets/sfx/switch.wav');
 const sndHeavy = new Audio('./assets/sfx/click-heavy.wav');
+sndHeavy.volume = 0.25;
 function playSfx(a){ a.currentTime = 0; a.play().catch(()=>{}); }
+
+const sndAmbience = new Audio('./assets/sfx/Microcasette.wav');
+sndAmbience.loop = true;
+sndAmbience.volume = 0.1;
+let ambienceStarted = false;
+function startAmbience(){
+  if(ambienceStarted) return;
+  ambienceStarted = true;
+  sndAmbience.play().catch(()=>{});
+}
+addEventListener('scroll', startAmbience, {once:true, passive:true});
+addEventListener('pointerdown', startAmbience, {once:true});
 
 /* ==========================================================================
    decode
@@ -393,10 +406,11 @@ let active=-1, tops=[], outroPlayed=false;
 function measure(){ tops=steps.map(el=>el.getBoundingClientRect().top+scrollY); }
 function onScroll(){
   const mid=scrollY+innerHeight*(narrow()?0.62:0.5);
-  let idx=0; for(let i=0;i<tops.length;i++){ if(tops[i]<=mid) idx=i; }
+  let idx=-1; for(let i=0;i<tops.length;i++){ if(tops[i]<=mid) idx=i; }
   const doc=document.body.scrollHeight-innerHeight;
   document.getElementById('railProg').style.width=(scrollY/Math.max(doc,1)*100).toFixed(1)+'%';
   steps.forEach((el,i)=>el.classList.toggle('active', i===idx));
+  if(idx===-1) return;
   if(idx!==active){
     const first=active===-1;
     active=idx; applySection(idx);
@@ -479,7 +493,7 @@ p.lineMat.opacity=ln;
   requestAnimationFrame(tick);
 }
 
-measure(); applySection(0,true); onScroll(); requestAnimationFrame(tick);
+measure(); applySection(0,true); document.getElementById('chap').textContent=''; onScroll(); requestAnimationFrame(tick);
 addEventListener('load', ()=>{ measure(); onScroll(); });
 anime({targets:parts.map(p=>p.s), intro:0,
   duration: reduce?300:1400, delay: anime.stagger(12), easing:'easeOutQuint'});

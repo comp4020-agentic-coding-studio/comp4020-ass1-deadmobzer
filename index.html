@@ -6,7 +6,7 @@
 <title>Glock 17 — teardown</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -20,7 +20,8 @@
   <details class="toc">
     <summary>Sections</summary>
     <ul>
-      <li><a href="#sec-0">Assembled</a></li>
+      <li><a href="#sec-intro">Intro</a></li>
+      <li><a href="#sec-0">History</a></li>
       <li><a href="#sec-1">Frame</a></li>
       <li><a href="#sec-2">Slide</a></li>
       <li><a href="#sec-3">Barrel</a></li>
@@ -44,6 +45,16 @@
 </header>
 
 <main>
+<section class="intro" id="sec-intro">
+  <svg class="phones-icon" viewBox="0 0 48 48" width="64" height="64" fill="none" aria-hidden="true">
+    <path d="M8 26v-4C8 12.6 15.2 6 24 6s16 6.6 16 16v4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="4" y="24" width="9" height="16" rx="4.5" stroke="currentColor" stroke-width="2.5"/>
+    <rect x="35" y="24" width="9" height="16" rx="4.5" stroke="currentColor" stroke-width="2.5"/>
+  </svg>
+  <p class="intro-note"><b>Headphones</b> and an <b>OLED</b> panel at max brightness are recommended for best results.</p>
+  <div class="scroll-cue" aria-hidden="true">Scroll to begin<i class="arrow"></i></div>
+</section>
+
 <div class="wrap">
   <div class="stage"><div class="stage-inner">
     <canvas id="gl"></canvas>
@@ -54,16 +65,18 @@
   </div></div>
   <div class="story" id="story">
 
-<section class="step hero" id="sec-0" data-mat="steel" data-chap="Assembled">
+<section class="step hero" id="sec-0" data-mat="steel" data-chap="History">
   <div class="step-in">
     <h1>Glock 17,<br><span>taken apart</span></h1>
-    <p class="lede">Fifty-three modelled components, one group at a time — what each is made of and what it contributes. Keep scrolling and the pistol comes apart. An <b>OLED</b> panel at max brightness is reccomended for best visuals.</p>
-    <dl class="spec-hero">
+    <p class="eyebrow"><i></i>Deutsch-Wagram, Austria · 1982</p>
+    <h2>A first pistol,<br>built to a deadline</h2>
+    <p class="txt">Gaston Glock ran a small firm making curtain rods and polymer fittings outside Vienna and had never designed a firearm when, in 1980, he heard the Austrian army was looking to replace its ageing Walther P38. He assembled a team of pistol experts, patented a design within months, and the Glock 17 — his company's first gun — won the trials outright.</p>
+    <p class="txt">Adopted in 1982 as the Pistole 80, it broke with contemporary handguns on almost every count: a polymer frame instead of machined steel, a striker instead of a hammer, and a third the parts of comparable service pistols. Police and military forces worldwide followed the Austrian army's lead, and it remains one of the best-selling pistols on the market.</p>
+    <dl>
       <dt>Model</dt><dd>Glock 17, chambered in 9 × 19 mm</dd>
       <dt>Maker</dt><dd>Glock Ges.m.b.H., Deutsch-Wagram, Austria</dd>
       <dt>Designer</dt><dd>Gaston Glock, early 1980s — the firm's first firearm, after years making polymer and steel goods</dd>
       <dt>Adopted</dt><dd>Austrian armed forces, 1982, as the Pistole 80</dd>
-      <dt>This model</dt><dd>53 components · 46.8k triangles · 5 material classes</dd>
     </dl>
   </div>
 </section>

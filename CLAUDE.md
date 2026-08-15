@@ -163,7 +163,7 @@ know whose repo it is. Spend the effort on the work.
 ## References to point to:
 - `assets/reference/g17_teardown.html` was the premade webpage this prototype is built from --- self-contained, unbound from any template. Generated using Claude online. Its content and logic now live in `index.html`/`main.js`/`styles.css`; kept here as process reference, and excluded from `dist/` by `build.mjs`.
 - `assets/reference/g17_components.glb` serves as the initial 3D model used to develop everything else. Not loaded by the page (geometry is inlined as JSON instead) --- kept as process reference only.
-- `assets/sfx/` contains three short foley clips (`click-soft.wav`, `click-heavy.wav`, `switch.wav`) trimmed from a Cymatics sample pack, for mechanical click/switch sound on interaction. The original pack was ~1GB of unrelated commercial audio and was dropped rather than committed in full --- only these three files, chosen for the teardown's mechanical theme, are checked in and shipped.
+- `assets/sfx/` contains three short foley clips (`click-soft.wav`, `click-heavy.wav`, `switch.wav`) trimmed from a Cymatics sample pack, for mechanical click/switch sound on interaction, plus a longer looped ambience clip (`Microcasette.wav`, tape-hiss/mechanical texture) played quietly in the background throughout. The original pack was ~1GB of unrelated commercial audio and was dropped rather than committed in full --- only these files, chosen for the teardown's mechanical theme, are checked in and shipped.
 - `assets/reference/Claude_online_process.md` is a file that contains the process done outside of the agent but with AI assistance. It was done primarily for proof of concept work on my mobile phone.
 
 ## Your goal
