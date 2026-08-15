@@ -160,11 +160,11 @@ means building legibly is part of building well.
 You don't need a name, a student number, or any identity file in the repo: we
 know whose repo it is. Spend the effort on the work.
 
-## This file is yours
+## References to point to:
+- `assets/g17_teardown.html` contains a premade webpage unbound from any template, use that as your primary reference. This was generated using Claude online.
+- `assets/g17_components.glb` serves as the initial 3D model used to develop everything else. Not loaded by the page (geometry is inlined as JSON instead) --- kept as process reference only.
+- `assets/sfx/` contains three short foley clips (`click-soft.wav`, `click-heavy.wav`, `switch.wav`) trimmed from a Cymatics sample pack, for mechanical click/switch sound on interaction. The original pack was ~1GB of unrelated commercial audio and was dropped rather than committed in full --- only these three files, chosen for the teardown's mechanical theme, are checked in.
+- `assets/Claude_online_process.md` is a file that contains the process done outside of the agent but with AI assistance. It was done primarily for proof of concept work on my mobile phone.
 
-This CLAUDE.md is a starting point, not a fixed rulebook. As you learn what your
-prototype needs --- a convention to hold the agent to, a sensor that keeps
-catching you out, a fact about the stack the agent keeps getting wrong --- write
-it down here. Growing this file is the work of harness engineering, and the gap
-between this boilerplate and your own version is part of what your prototype
-says about the developer you're becoming.
+## Your goal
+Your goal is to take everything from the assets folder alongside a given prompt to ensure that `index.html` meets the spec.
